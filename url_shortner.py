@@ -2,12 +2,15 @@ from flask import Flask, request, jsonify, redirect, render_template
 import sqlite3
 import hashlib
 
+# Initialize Flask
 app = Flask(__name__)
 
 # Database setup
 def init_db():
     conn = sqlite3.connect('url_shortener.db')
     c = conn.cursor()
+    
+    # Create a table to store URLs
     c.execute('''CREATE TABLE IF NOT EXISTS urls
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                   long_url TEXT NOT NULL,
@@ -17,7 +20,7 @@ def init_db():
 
 init_db()
 
-# Generate short URL
+#Long to Short url generation
 def generate_short_url(long_url):
     hash_object = hashlib.md5(long_url.encode())
     return hash_object.hexdigest()[:8]  # Use first 8 characters of the hash
@@ -43,7 +46,7 @@ def shorten_url():
         result = c.fetchone()
         short_url = result[0] if result else short_url
     conn.close()
-
+    #Return the short URL
     return jsonify({'short_url': f'http://localhost:5000/{short_url}'})
 
 # Endpoint to redirect to original URL
@@ -66,4 +69,4 @@ def home():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True)   #run flask in debug mode
