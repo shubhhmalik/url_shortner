@@ -10,15 +10,23 @@
 <body>
     <div class="container">
         <h1>URL Shortener</h1>
-        <form id="urlForm">
-            <input type="text" id="longUrl" placeholder="Enter long URL" required>
+        
+        <!-- Form to submit a long URL -->
+        <form action="/shorten" method="POST">
+            <input type="text" name="long_url" placeholder="Enter long URL" required>
             <button type="submit">Shorten</button>
         </form>
-        <!--shortened URL or error-->
-        <div id="result"></div>
-    </div>
 
-    <!-- Link JS file -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <!-- Display the result or error message -->
+        {% if short_url %}
+            <div id="result">
+                <p>Short URL: <a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
+            </div>
+        {% elif error %}
+            <div id="result">
+                <p>Error: {{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
