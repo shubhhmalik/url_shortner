@@ -12,7 +12,7 @@ A Python-based URL shortener that converts long URLs into shorter, more manageab
 - Python
 - Flask (for the web framework)
 - SQLite (for database storage)
-- HTML/CSS and JS (for the frontend)
+- HTML/CSS (for the frontend)
 
 ## Clone the repository:
    ```bash
