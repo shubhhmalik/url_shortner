@@ -1,20 +1,21 @@
-/* Dark Mode Styling with Background Image */
+/* Dark Mode + Background Image */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: flex;  /*to center content */
     justify-content: center;
     align-items: center;
     height: 100vh;
 
-    /* Set the background image */
+    /* Set background image */
     background-image: url('/static/IMG_20250323_055137.jpg');
     background-size: cover; /* Cover the entire background */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent the image from repeating */
 }
-
+/* Container for link*/
 .container {
     background: rgba(30, 30, 30, 0.8); /* Semi-transparent dark background */
     padding: 2rem;
