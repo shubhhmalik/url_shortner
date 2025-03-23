@@ -18,9 +18,8 @@ def init_db():
     conn.commit()
     conn.close()
 
-init_db()
-
 #Long to Short url generation
+init_db()
 def generate_short_url(long_url):
     hash_object = hashlib.md5(long_url.encode())
     return hash_object.hexdigest()[:8]  # Use first 8 characters of the hash
