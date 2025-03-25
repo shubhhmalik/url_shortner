@@ -17,11 +17,11 @@ def init_db():
 
 def generate_short_url(long_url):
     hash_object = hashlib.md5(long_url.encode())
-    return hash_object.hexdigest()[:8]  # Use first 8 characters of the hash
+    return hash_object.hexdigest()[:8] 
     
 init_db()
 
-# Homepage
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -29,7 +29,7 @@ def home():
 @app.route('/shorten', methods=['POST'])
 def shorten_url():
 
-    long_url = request.form.get('long_url')  # Get the long URL from the form
+    long_url = request.form.get('long_url')                      #Get the long URL
     if not long_url:
         return render_template('index.html', error='Missing long URL')
 
@@ -41,7 +41,7 @@ def shorten_url():
         c.execute('INSERT INTO urls (long_url, short_url) VALUES (?, ?)', (long_url, short_url))
         conn.commit()
     except sqlite3.IntegrityError:
-        # If short_url already exists, get that
+
         c.execute('SELECT short_url FROM urls WHERE long_url = ?', (long_url,))
         result = c.fetchone()
         short_url = result[0] if result else short_url
@@ -50,7 +50,6 @@ def shorten_url():
     return render_template('index.html', short_url=f'http://localhost:5000/{short_url}')
 
 
-#Redirect to original URL
 @app.route('/<short_url>', methods=['GET'])
 def redirect_to_long_url(short_url):
 
@@ -70,21 +69,14 @@ if __name__ == '__main__':
     app.run(debug=True) 
 
 
+    
 
 #QUICK NOTES for recruiters
 #Line 5 : Initialization of Flask
-#Line 7 : Database setup
-#Line 11 : Created a table to store URLs
-#Line 18 : Long to Short url generation
-#Line 30 : Shorten URL endpoint
-#Line 39 : Saves to database
-#Line 51 : Renders the result in the template
-#Line 71 : Runs Flask in debug mode
-
-
-
-
-
-
-
-
+#Line 7-9 : Database connection setup
+#Line 11-14 : Creates a table to store URLs
+#Line 18-20 : Long to Short url generation
+#Line 25-27 : Homepage route
+#Line 29-50 : Shorten URL endpoint
+#Line 53-65 : Redirection
+#Line 68,69 : Runs Flask in debug mode
