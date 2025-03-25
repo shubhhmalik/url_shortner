@@ -1,23 +1,20 @@
-/* Dark Mode + Background Image */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;  /*to center content */
+    display: flex;                                             /*to center content */
     justify-content: center;
     align-items: center;
     height: 100vh;
 
-    /* Set background image */
     background-image: url('/static/IMG_20250323_055137.jpg');
-    background-size: cover; /* Cover the entire background */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 /* Container for link*/
 .container {
-    background: rgba(30, 30, 30, 0.8); /* Semi-transparent dark background */
+    background: rgba(30, 30, 30, 0.8); 
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -28,7 +25,7 @@ body {
 
 h1 {
     margin-bottom: 1.5rem;
-    color: #ffffff; /* White heading */
+    color: #ffffff;                                  /* White heading */
 }
 
 form {
@@ -78,3 +75,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+
+#QUICK NOTES for recruiter
+#Here i use Dark Mode and a Background Image
