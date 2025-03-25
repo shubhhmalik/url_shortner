@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNIP THAT</title>
-    <!--Link CSS file-->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>URL Shortener</h1>
         
-        <!-- Form to submit a long URL -->
         <form action="/shorten" method="POST">
             <input type="text" name="long_url" placeholder="Drop Your URL, Let’s Glow It Up!" required>
             <button type="submit">✨Shorten✨</button>
         </form>
 
-        <!-- Display the result or error message -->
         {% if short_url %}
             <div id="url-result">
                 <p>Short URL: <a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
@@ -30,3 +27,12 @@
     </div>
 </body>
 </html>
+
+
+
+#QUICK NOTES for recruites
+#Line7: Links CSS file
+#Line 13-16: Form to submit a long URL
+#Line 18-26 : Displays the result or error message
+
+
